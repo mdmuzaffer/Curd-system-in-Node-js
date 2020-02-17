@@ -1,0 +1,11 @@
+<h1>Update Employee form</h1>
+<% if(this.message){ %>
+<span><p><%= message %></p></span>
+<% } %>
+<form method="POST" action="/update">
+	<input type="hidden" name="id" value="<%= result[0].EmpID %>"><br><br>
+	Name: <input type="text" name="name" value="<%= result[0].Name %>"><br><br>
+	Empc: <input type="text" name="empcode" value="<%= result[0].EmpCode %>"><br><br>
+	Salay: <input type="text" name="salary" value="<%= result[0].Salary %>"><br><br>
+	<input type="submit" value="Submit">
+</form>

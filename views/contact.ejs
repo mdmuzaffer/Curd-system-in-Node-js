@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center;">Contact form</h2>
+<% if(this.message){ %>
+<span><p><%= message %></p></span>
+<% } %>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>EmpID</th>
+    <th>Salary</th>
+    <th>Action</th>
+  </tr>
+   <% for (var i = 0; i < result.length; i++) { %>
+  <tr>
+    <td><%= result[i].EmpID %></td>
+    <td><%= result[i].Name %></td>
+    <td><%= result[i].EmpCode %></td>
+    <td><%= result[i].Salary %></td>
+    <td><span><a href="#">Add</a> &nbsp;|| </span><span><a href="/delete/<%= result[i].EmpID %>">Delete</a> &nbsp;||
+	</span><span><a href="/update/<%= result[i].EmpID %>">Update</a></span></td>
+  </tr>
+   <% } %>
+</table>
+<br>
+<br>
+<br>
+
+<form method="POST" action="/contact">
+	Name: <input type="text" name="name" placeholder="Name"><br><br>
+	Empc: <input type="text" name="empcode" placeholder="Empcode"><br><br>
+	Salay: <input type="text" name="salary" placeholder="Salary"><br><br>
+	<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
+
+
+
+
